@@ -14,7 +14,7 @@ class Ingredient(models.Model):
     ]
 
     name = models.CharField(max_length=30)
-    quantity = models.IntegerField(default=0)
+    quantity = models.FloatField(default=0)
     unit = models.CharField(max_length=10, choices=UNIT_CHOICES)
     unit_price = models.FloatField(default=0)
 
@@ -23,3 +23,8 @@ class MenuItem(models.Model):
     title = models.CharField(max_length=50)
     price = models.FloatField(default=0)
 
+# This model represents a single ingredient and how much of it is required for an item off the menu.
+class RecipeRequirement(models.Model):
+    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    quanity = models.FloatField(default=0)
