@@ -1,0 +1,14 @@
+<head>
+</head>
+<body>
+    <a href="{% url 'home' %}"><h2>GO TO HOME PAGE</h2></a>
+    <h3>Welcome! What would you like to do?</h3>
+    <ul>
+        <li><a href="{% url 'inv_list' %}">Inventory list</a></li>
+        <li>Purchase list</li>
+        <li>Restaurant's menu</li>
+        <li>Economics</li>
+    </ul>
+    {% block content %}
+    {% endblock %}
+</body>

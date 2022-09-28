@@ -1,0 +1,17 @@
+{% extends './base.html' %}
+{% block content %}
+<table id ="inventory">
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    {% for inv_item in object_list  %}
+    <tr>
+        <td>{{ inv_item.name }}</td>
+        <td>{{ inv_item.quantity }} {{ inv_item.get_unit_display }}</td>
+        <td>{{ inv_item.unit_price }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
